@@ -1,0 +1,46 @@
+﻿<Controls:MetroWindow x:Class="SpeechScore.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        GlowBrush="{DynamicResource AccentColorBrush}"
+        Title="English Pronunciation Score" TitleCharacterCasing="Normal" FontSize="20"  Height="400" Width="600" Loaded="MetroWindow_Loaded" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Grid>
+        <Grid x:Name="PronGrid">
+
+            <StackPanel Orientation="Horizontal" Height="60" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Button ToolTip="TTS" x:Name="TTSBut" HorizontalAlignment="Left" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="48" Width="48" Margin="0,5,0,0"  Click="TTSBut_Click">
+                    <iconPacks:PackIconModern  Kind="Sound3"  Height="32" Width="32" />
+                </Button>
+
+                <Button ToolTip="Record" x:Name="StartBut" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}"  Margin="100,5,0,0"  Width="48" Height="48" Click="Button_Start_Click">
+                    <iconPacks:PackIconModern Kind="Microphone"  Height="20" Width="20"/>
+                </Button>
+                <Button ToolTip="Stop" Visibility="Collapsed"  x:Name="StopBut" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}"  Width="48" Height="48" Margin="100,5,0,0"  Click="Button_Stop_Click">
+                    <iconPacks:PackIconModern Kind="ControlStop" Height="20" Width="20" />
+                </Button>
+
+                <Button ToolTip="Change Language" Content="Chinese"  x:Name="LanguageBut"  Width="80" Height="40" Margin="100,5,0,0"  Click="LanguageBut_Click">
+                </Button>
+                
+            </StackPanel>
+            <RichTextBox IsReadOnly="True"  x:Name="ReferenceText" FontSize="40"  HorizontalAlignment="Left" Height="190" Margin="80,70,80,0"  VerticalAlignment="Top" VerticalScrollBarVisibility="Auto">
+                <FlowDocument TextAlignment="Center">
+                    <Paragraph>
+                        <Run>Good Moring!</Run>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Controls:ProgressRing x:Name="progressRing" IsActive="False" VerticalAlignment="Top" Margin="0,150,0,0"/>
+
+            <WebBrowser  x:Name="PornScoreWebBrowser"  HorizontalAlignment="Left"  Margin="20,270,20,100" VerticalAlignment="Top" />
+            <Button x:Name="PrevBut" Click="PrevBut_Click" ToolTip="Prev" HorizontalAlignment="Left" Height="48" Width="48" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}"  Margin="20,123,0,0" VerticalAlignment="Top" >
+                <iconPacks:PackIconModern  Kind="ArrowLeft" Height="32" Width="32" />
+            </Button>
+            <Button x:Name="NextPro" Click="NextPro_Click" ToolTip="Next" HorizontalAlignment="Right" Height="48" Width="48" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="0,123,20,0" VerticalAlignment="Top" >
+                <iconPacks:PackIconModern  Kind="ArrowRight" Height="32" Width="32" />
+            </Button>
+        </Grid>
+        
+    </Grid>
+</Controls:MetroWindow>
